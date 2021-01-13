@@ -62,3 +62,20 @@ rm terraform_0.14.4_linux_amd64.zip
 curl -Lo mongo.deb https://repo.mongodb.org/apt/debian/dists/buster/mongodb-org/4.4/main/binary-amd64/mongodb-org-shell_4.4.3_amd64.deb
 dpkg -i ./mongo.deb
 rm mongo.deb
+
+# Velero
+wget https://github.com/vmware-tanzu/velero/releases/download/v1.5.2/velero-v1.5.2-linux-amd64.tar.gz
+tar -xvf velero-v1.5.2-linux-amd64.tar.gz
+mv velero-v1.5.2-linux-amd64/velero /usr/local/bin
+rm velero-v1.5.2-linux-amd64.tar.gz
+
+# argo rollouts cli
+curl -LO https://github.com/argoproj/argo-rollouts/releases/latest/download/kubectl-argo-rollouts-linux-amd64
+chmod +x /kubectl-argo-rollouts-linux-amd64
+mv /kubectl-argo-rollouts-linux-amd64 /usr/local/bin/kubectl-argo-rollouts
+
+# helm
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+chmod 700 get_helm.sh
+./get_helm.sh
+rm get_helm.sh
