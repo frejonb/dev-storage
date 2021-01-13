@@ -1,3 +1,4 @@
+TERM="xterm-256color"
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -86,7 +87,7 @@ plugins=(
   zsh-syntax-highlighting
   virtualenv
 )
-#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=23'
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=23'
 source $ZSH/oh-my-zsh.sh
 # User configuration
 
