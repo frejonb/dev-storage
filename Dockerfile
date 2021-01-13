@@ -1,4 +1,5 @@
-FROM debian:bullseye
+FROM debian:buster
 
-COPY install-packages.sh .
-RUN ./install-packages.sh
+COPY BLANK.config/ /root/BLANK.config
+COPY BLANK.gitconfig .zshrc .kubectl_aliases install-packages.sh /root/
+# RUN ./root/install-packages.sh
