@@ -1,0 +1,83 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    type: compute-self-service
+  name: fernando-docker
+  namespace: self-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fernando-docker
+      type: compute-self-service
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: fernando-docker
+        type: compute-self-service
+    spec:
+      containers:
+      - env:
+        - name: DOCKER_TLS_CERTDIR
+        image: docker:20.10.2-dind
+        imagePullPolicy: IfNotPresent
+        name: main
+        resources: {}
+        securityContext:
+          privileged: true
+        tty: true
+        volumeMounts:
+        - mountPath: /var/lib/docker
+          name: home-data
+      nodeSelector:
+        op: self-service
+      restartPolicy: Always
+      securityContext: {}
+      tolerations:
+      - effect: NoSchedule
+        key: op
+        operator: Equal
+        value: self-service
+      volumes:
+      - name: home-data
+        persistentVolumeClaim:
+          claimName: fernando-docker
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    type: compute-self-service
+  name: fernando-docker
+  namespace: self-service
+spec:
+  ports:
+  - port: 2375
+    protocol: TCP
+    targetPort: 2375
+  selector:
+    app: fernando-docker
+    type: compute-self-service
+  type: ClusterIP
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  labels:
+    type: compute-self-service
+  name: fernando-docker
+  namespace: self-service
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 123Gi
+  storageClassName: hot
+  volumeMode: Filesystem
