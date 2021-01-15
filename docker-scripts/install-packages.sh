@@ -17,7 +17,7 @@ apt-get update
 # apt-get -y upgrade
 
 # Install packages, without unnecessary recommended packages:
-apt-get -y install --no-install-recommends lsb-release wget gnupg2 ca-certificates software-properties-common locales
+apt-get -y install --no-install-recommends lsb-release wget curl gnupg2 ca-certificates software-properties-common locales
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
 echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" | tee /etc/apt/sources.list.d/pgdg.list
 # docker cli
@@ -30,7 +30,7 @@ stable"
 apt-get update
 
 apt-get -y install --no-install-recommends \
-build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev \
+build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev \
 zsh jq fzf gettext vim watch unzip openssh-server git less \
 postgresql-client-12 docker-ce-cli
 
