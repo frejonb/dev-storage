@@ -1,3 +1,5 @@
+export LC_ALL=C.UTF-8
+export LANG=C.UTF-8
 TERM="xterm-256color"
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -116,8 +118,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #fpath=($fpath ~/.zsh/completion)
 autoload -U compinit && compinit
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
+source /usr/share/doc/fzf/examples/key-bindings.zsh
 
 export KUBE_EDITOR="code --wait"
 export EDITOR=vim
@@ -127,13 +128,13 @@ source <(kubectl completion zsh)
 #alias pulsar-admin="kubectl -n pulsar exec $(kubectl -n pulsar get pod -l component=broker  -o jsonpath='{.items[0].metadata.name}') -it -- bin/pulsar-admin"
 #alias pulsar="kubectl -n pulsar exec $(kubectl -n pulsar get pod -l component=broker  -o jsonpath='{.items[0].metadata.name}') -it -- bin/pulsar"
 # alias gr="/Users/fernando/.nvm/versions/node/v12.18.1/bin/gr"
-# export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#![ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 # pyenv and virtualenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"

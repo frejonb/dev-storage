@@ -17,7 +17,7 @@ apt-get update
 # apt-get -y upgrade
 
 # Install packages, without unnecessary recommended packages:
-apt-get -y install --no-install-recommends lsb-release wget gnupg2 ca-certificates software-properties-common
+apt-get -y install --no-install-recommends lsb-release wget gnupg2 ca-certificates software-properties-common locales
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
 echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" | tee /etc/apt/sources.list.d/pgdg.list
 # docker cli
