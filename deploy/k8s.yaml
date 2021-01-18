@@ -25,11 +25,12 @@ spec:
       containers:
       - args:
         - cat
-        image: fernandorejonbarrera/dev-storage:0.0.1
+        image: fernandorejonbarrera/dev-storage:0.0.5
         imagePullPolicy: IfNotPresent
         name: main
         resources: {}
-        tty: true
+        securityContext:
+          privileged: true
         volumeMounts:
         - mountPath: /root
           name: home-data
