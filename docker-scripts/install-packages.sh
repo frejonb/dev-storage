@@ -38,6 +38,8 @@ postgresql-client-12 docker-ce-cli docker-ce=5:19.03.14~3-0~debian-buster
 mkdir /var/run/sshd
 mkdir ~/.ssh
 ssh-keygen -A
+# Configure docker
+echo '{"hosts": ["unix:///var/run/docker.sock", "tcp://127.0.0.1:2375"]}' > /etc/docker/daemon.json
 # Delete cached files we don't need anymore:
 apt-get clean all
 rm -rf /var/lib/apt/lists/*
