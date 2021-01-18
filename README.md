@@ -9,7 +9,7 @@ docker build -t dev-storage .
 
 ## Run
 ```
-docker run --rm -it --name dev-storage --mount source=my-dev-storage,target=/root -p 2200:22 dev-storage zsh
+docker run --rm -it --name dev-storage --privileged --mount source=my-dev-storage,target=/root -p 2200:22 dev-storage zsh
 ```
 
 To copy the starter dotfiles, do:

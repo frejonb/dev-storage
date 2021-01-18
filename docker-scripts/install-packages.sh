@@ -39,6 +39,7 @@ mkdir /var/run/sshd
 mkdir ~/.ssh
 ssh-keygen -A
 # Configure docker
+mkdir -p /etc/docker
 echo '{"hosts": ["unix:///var/run/docker.sock", "tcp://127.0.0.1:2375"]}' > /etc/docker/daemon.json
 # Delete cached files we don't need anymore:
 apt-get clean all
