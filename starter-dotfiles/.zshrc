@@ -11,8 +11,9 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="powerlevel9k/powerlevel9k"
-ZSH_THEME="spaceship"
-SPACESHIP_KUBECTL_SHOW=false
+# ZSH_THEME="spaceship"
+ZSH_THEME=""
+# SPACESHIP_KUBECTL_SHOW=false
 #SPACESHIP_PROMPT_ORDER=( time user dir host git package node ruby elm elixir xcode swift golang php rust haskell julia docker aws gcloud venv conda pyenv dotnet ember kubectl terraform exec_time line_sep battery vi_mode jobs exit_code char )
 #POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 #POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=''
@@ -84,13 +85,14 @@ SPACESHIP_KUBECTL_SHOW=false
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  zsh-nvm
+  # zsh-nvm
   zsh-autosuggestions
   zsh-syntax-highlighting
-  virtualenv
+  # virtualenv
 )
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=23'
 source $ZSH/oh-my-zsh.sh
+eval "$(starship init zsh)"
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
