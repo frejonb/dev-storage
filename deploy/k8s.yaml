@@ -34,8 +34,10 @@ spec:
         volumeMounts:
         - mountPath: /root
           name: home-data
+        - mountPath: /var/lib/docker
+          name: docker-data
       nodeSelector:
-        op: self-service
+        op: self-service-fast
       restartPolicy: Always
       securityContext: {}
       tolerations:
@@ -47,6 +49,9 @@ spec:
       - name: home-data
         persistentVolumeClaim:
           claimName: fernando
+      - name: docker-data
+        persistentVolumeClaim:
+          claimName: fernando-docker
 ---
 apiVersion: v1
 kind: Service
@@ -58,8 +63,12 @@ metadata:
 spec:
   ports:
   - port: 22
+    name: ssh
     protocol: TCP
     targetPort: 22
+  - port: 2375
+    name: docker
+    protocol: TCP
   selector:
     app: fernando
     type: compute-self-service
@@ -78,5 +87,21 @@ spec:
   resources:
     requests:
       storage: 20Gi
+  storageClassName: hot
+  volumeMode: Filesystem
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  labels:
+    type: compute-self-service
+  name: fernando-docker
+  namespace: self-service
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 123Gi
   storageClassName: hot
   volumeMode: Filesystem
