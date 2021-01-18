@@ -28,7 +28,10 @@ spec:
         image: fernandorejonbarrera/dev-storage:0.0.5
         imagePullPolicy: IfNotPresent
         name: main
-        resources: {}
+        resources:
+          requests:
+            cpu: 1700m
+            memory: 15300Mi
         securityContext:
           privileged: true
         volumeMounts:
