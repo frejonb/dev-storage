@@ -95,3 +95,8 @@ chmod +x /usr/local/bin/docker-compose
   KREW=./krew-"$(uname | tr '[:upper:]' '[:lower:]')_$(uname -m | sed -e 's/x86_64/amd64/' -e 's/arm.*$/arm/')" &&
   "$KREW" install krew
 )
+
+# Kubeseal
+wget https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.14.1/kubeseal-linux-amd64 -O kubeseal
+install -m 755 kubeseal /usr/local/bin/kubeseal
+rm kubeseal
