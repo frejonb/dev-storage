@@ -13,4 +13,4 @@ release:
 		echo "$(shell uname) not supported"; exit 1; \
 	fi; \
 	docker build -t fernandorejonbarrera/dev-storage:$$VERSION .; \
-	docker push fernandorejonbarrera/dev-storage:$$VERSION .;
+	docker push fernandorejonbarrera/dev-storage:$$VERSION;
