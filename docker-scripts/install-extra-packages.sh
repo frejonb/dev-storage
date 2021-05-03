@@ -43,7 +43,7 @@ chmod +x ./kubectl
 mv ./kubectl /usr/local/bin/kubectl
 
 # Skaffold
-curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/latest/skaffold-linux-amd64
+curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/v1.21.0/skaffold-linux-amd64
 chmod +x skaffold
 mv skaffold /usr/local/bin
 
