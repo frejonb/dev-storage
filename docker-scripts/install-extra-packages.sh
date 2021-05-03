@@ -66,6 +66,11 @@ curl -Lo mongo.deb https://repo.mongodb.org/apt/debian/dists/buster/mongodb-org/
 dpkg -i ./mongo.deb
 rm mongo.deb
 
+# Mongo db tools
+curl -Lo mongotools.deb https://fastdl.mongodb.org/tools/db/mongodb-database-tools-debian10-x86_64-100.3.1.deb
+dpkg -i ./mongotools.deb
+rm mongotools.deb
+
 # Velero
 wget https://github.com/vmware-tanzu/velero/releases/download/v1.5.2/velero-v1.5.2-linux-amd64.tar.gz
 tar -xvf velero-v1.5.2-linux-amd64.tar.gz

@@ -17,3 +17,16 @@ To copy the starter dotfiles, do:
 ```
 docker cp starter-dotfiles/. dev-storage:/root
 ```
+## Release
+
+```
+make release version=(patch|minor|major)
+```
+
+This will read the current version from `version.txt`, bump it accordingly, and:
+- store it back to `version.txt`,
+- update `deploy/k8s.yaml`,
+- build the new container with the correct tag,
+- push the container to the registry
+
+
