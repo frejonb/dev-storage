@@ -31,7 +31,7 @@ spec:
       containers:
       - args:
         - cat
-        image: fernandorejonbarrera/dev-storage:0.1.7
+        image: fernandorejonbarrera/dev-storage:0.1.8
         imagePullPolicy: IfNotPresent
         name: main
         resources:
