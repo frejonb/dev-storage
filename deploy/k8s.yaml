@@ -31,7 +31,7 @@ spec:
       containers:
       - args:
         - cat
-        image: fernandorejonbarrera/dev-storage:0.1.8
+        image: fernandorejonbarrera/dev-storage:0.1.9
         imagePullPolicy: IfNotPresent
         name: main
         resources:
@@ -95,7 +95,7 @@ spec:
   - ReadWriteOnce
   resources:
     requests:
-      storage: 20Gi
+      storage: 50Gi
   storageClassName: hot
   volumeMode: Filesystem
 ---
