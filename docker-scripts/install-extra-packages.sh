@@ -105,3 +105,10 @@ chmod +x /usr/local/bin/docker-compose
 wget https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.14.1/kubeseal-linux-amd64 -O kubeseal
 install -m 755 kubeseal /usr/local/bin/kubeseal
 rm kubeseal
+
+# Install s5cmd
+wget -O s5cmd.tar.gz https://github.com/peak/s5cmd/releases/download/v1.4.0-rc.1/s5cmd_1.4.0-rc.1_Linux-64bit.tar.gz
+mkdir s5cmd/
+tar -xvf s5cmd.tar.gz -C s5cmd/
+mv s5cmd/s5cmd /usr/local/bin
+rm -fr s5cmd s5cmd.tar.gz
