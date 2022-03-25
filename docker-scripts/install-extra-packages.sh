@@ -43,7 +43,7 @@ chmod +x ./kubectl
 mv ./kubectl /usr/local/bin/kubectl
 
 # Skaffold
-curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/v1.29.0/skaffold-linux-amd64
+curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/v1.37.0/skaffold-linux-amd64
 chmod +x skaffold
 mv skaffold /usr/local/bin
 
@@ -112,3 +112,10 @@ mkdir s5cmd/
 tar -xvf s5cmd.tar.gz -C s5cmd/
 mv s5cmd/s5cmd /usr/local/bin
 rm -fr s5cmd s5cmd.tar.gz
+
+# Git lfs
+wget https://github.com/git-lfs/git-lfs/releases/download/v3.1.2/git-lfs-linux-amd64-v3.1.2.tar.gz
+mkdir gitlfs/
+tar -xvf git-lfs-linux-amd64-v3.1.2.tar.gz -C gitlfs/
+./gitlfs/install.sh
+rm -fr gitlfs
