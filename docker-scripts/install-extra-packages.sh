@@ -35,7 +35,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 #ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme" 
 
 # starship theme
-curl -fsSL https://starship.rs/install.sh | bash /dev/stdin --yes
+curl -fsSL https://starship.rs/install.sh | sh /dev/stdin --yes
 
 # Kubectl
 curl -LO "https://storage.googleapis.com/kubernetes-release/release/v1.20.0/bin/linux/amd64/kubectl"
@@ -119,3 +119,4 @@ mkdir gitlfs/
 tar -xvf git-lfs-linux-amd64-v3.1.2.tar.gz -C gitlfs/
 ./gitlfs/install.sh
 rm -fr gitlfs
+rm git-lfs-linux-amd64-v3.1.2.tar.gz
