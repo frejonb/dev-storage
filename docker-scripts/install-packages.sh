@@ -18,24 +18,28 @@ apt-get update
 
 # Install packages, without unnecessary recommended packages:
 apt-get -y install --no-install-recommends lsb-release wget curl gnupg2 ca-certificates software-properties-common locales
-wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
-echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" | tee /etc/apt/sources.list.d/pgdg.list
+
+curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | gpg --dearmor -o /usr/share/keyrings/postgresql-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/postgresql-keyring.gpg] http://apt.postgresql.org/pub/repos/apt/ bullseye-pgdg main" | tee /etc/apt/sources.list.d/postgresql.list
+
 # docker cli
-curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
-add-apt-repository \
-"deb [arch=amd64] https://download.docker.com/linux/debian \
-$(lsb_release -cs) \
-stable"
+mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
+  $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
+
 # github cli
-apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
-apt-add-repository https://cli.github.com/packages
+curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | tee /etc/apt/sources.list.d/github-cli.list > /dev/null
 
 apt-get update
 
 apt-get -y install --no-install-recommends \
 build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev \
 zsh gh jq fzf gettext vim watch unzip openssh-server git less fonts-firacode htop \
-postgresql-client-12 libpq-dev docker-ce-cli docker-ce=5:19.03.14~3-0~debian-buster
+postgresql-client-12 libpq-dev docker-ce-cli docker-ce=5:20.10.21~3-0~debian-bullseye
 
 # Configure ssh server
 mkdir /var/run/sshd

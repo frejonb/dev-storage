@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM debian:bullseye
 EXPOSE 22
 COPY docker-scripts/install-packages.sh /
 RUN chmod +x /install-packages.sh && ./install-packages.sh

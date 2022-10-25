@@ -122,3 +122,8 @@ tar -xvf git-lfs-linux-amd64-v3.1.2.tar.gz -C gitlfs/
 ./gitlfs/install.sh
 rm -fr gitlfs
 rm git-lfs-linux-amd64-v3.1.2.tar.gz
+
+# neovim
+wget https://github.com/neovim/neovim/releases/download/v0.8.0/nvim-linux64.deb 
+apt install ./nvim-linux64.deb
+rm nvim-linux64.deb
