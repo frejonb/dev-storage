@@ -38,7 +38,7 @@ apt-get update
 
 apt-get -y install --no-install-recommends \
 build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev \
-zsh gh jq fzf gettext vim watch unzip openssh-server git less fonts-firacode htop \
+zsh gh jq fzf gettext vim watch unzip openssh-server git less groff fonts-firacode htop \
 postgresql-client-12 libpq-dev docker-ce-cli docker-ce=5:20.10.21~3-0~debian-bullseye
 
 # Configure ssh server
