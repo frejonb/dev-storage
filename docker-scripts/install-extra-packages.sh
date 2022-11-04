@@ -133,3 +133,9 @@ rm git-lfs-linux-amd64-v3.1.2.tar.gz
 wget https://github.com/neovim/neovim/releases/download/v0.8.0/nvim-linux64.deb 
 apt install ./nvim-linux64.deb
 rm nvim-linux64.deb
+
+
+# lazygit
+curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_0.35_Linux_x86_64.tar.gz"
+tar xf lazygit.tar.gz -C /usr/local/bin lazygit
+rm lazygit.tar.gz
