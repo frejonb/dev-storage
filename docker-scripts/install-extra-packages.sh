@@ -139,3 +139,9 @@ rm nvim-linux64.deb
 curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_0.35_Linux_x86_64.tar.gz"
 tar xf lazygit.tar.gz -C /usr/local/bin lazygit
 rm lazygit.tar.gz
+
+
+# ripgrep
+curl -LO https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_13.0.0_amd64.deb                                       
+dpkg -i ripgrep_13.0.0_amd64.deb      
+rm ripgrep_13.0.0_amd64.deb                                                                                                            
