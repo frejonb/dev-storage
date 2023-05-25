@@ -136,7 +136,7 @@ rm nvim-linux64.deb
 
 
 # lazygit
-curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_0.35_Linux_x86_64.tar.gz"
+curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/download/v0.35/lazygit_0.35_Linux_x86_64.tar.gz"
 tar xf lazygit.tar.gz -C /usr/local/bin lazygit
 rm lazygit.tar.gz
 
