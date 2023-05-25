@@ -145,3 +145,6 @@ rm lazygit.tar.gz
 curl -LO https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_13.0.0_amd64.deb                                       
 dpkg -i ripgrep_13.0.0_amd64.deb      
 rm ripgrep_13.0.0_amd64.deb                                                                                                            
+
+# vscode-server
+wget -O- https://aka.ms/install-vscode-server/setup.sh | sh
